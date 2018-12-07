@@ -36,6 +36,12 @@ namespace splinetoolbox {
  */
 inline double catmullrom(double p0, double p1, double p2, double p3, double t) noexcept
 {
+  if (t > 1.0) {
+    t = 1.0;
+  }
+  if (t < 0.0) {
+    t = 0.0;
+  }
   return p1 + 0.5 * (p2 - p0) * t + 0.5 * (4 * p2 + 2 * p0 - p3 - 5 * p1) * t * t + 0.5 * (3 * p1 + p3 - p0 - 3 * p2) * t * t * t;
 }
 
@@ -44,6 +50,12 @@ inline double catmullrom(double p0, double p1, double p2, double p3, double t) n
  */
 inline double catmullrom_d(double p0, double p1, double p2, double p3, double t) noexcept
 {
+  if (t > 1.0) {
+    t = 1.0;
+  }
+  if (t < 0.0) {
+    t = 0.0;
+  }
   return 0.5 * (p2 - p0) + (4 * p2 + 2 * p0 - p3 - 5 * p1) * t + 1.5 * (3 * p1 + p3 - p0 - 3 * p2) * t * t;
 }
 
@@ -52,6 +64,12 @@ inline double catmullrom_d(double p0, double p1, double p2, double p3, double t)
  */
 inline double catmullrom_dd(double p0, double p1, double p2, double p3, double t) noexcept
 {
+  if (t > 1.0) {
+    t = 1.0;
+  }
+  if (t < 0.0) {
+    t = 0.0;
+  }
   return (4 * p2 + 2 * p0 - p3 - 5 * p1) + 3 * (3 * p1 + p3 - p0 - 3 * p2) * t;
 }
 

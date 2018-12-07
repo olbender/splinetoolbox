@@ -27,6 +27,22 @@
 
 #include "splinetoolbox.hpp"
 
-TEST_CASE("Some test") {
-  REQUIRE(true);
+TEST_CASE("Catmull-Rom tests") {
+  REQUIRE(splinetoolbox::catmullrom(1, 2, 3, 4, -0.0) == Approx(2.0));
+  REQUIRE(splinetoolbox::catmullrom(1, 2, 3, 4, 0.0) == Approx(2.0));
+  REQUIRE(splinetoolbox::catmullrom(1, 2, 3, 4, 0.6) == Approx(2.6));
+  REQUIRE(splinetoolbox::catmullrom(1, 2, 3, 4, 1.0) == Approx(3.0));
+  REQUIRE(splinetoolbox::catmullrom(1, 2, 3, 4, 1.1) == Approx(3.0));
+ 
+/*
+  REQUIRE(splinetoolbox::catmullrom_d(1, 2, 3, 4, -0.1) 
+      == Approx(splinetoolbox::catmullrom_d(1, 2, 3, 4, 0.0)));
+  REQUIRE(splinetoolbox::catmullrom_d(1, 2, 3, 4, 1.0) 
+      == Approx(splinetoolbox::catmullrom_d(1, 2, 3, 4, 1.1)));
+  
+  REQUIRE(splinetoolbox::catmullrom_dd(1, 2, 3, 4, -0.1) 
+      == Approx(splinetoolbox::catmullrom_d(1, 2, 3, 4, 0.0)));
+  REQUIRE(splinetoolbox::catmullrom_dd(1, 2, 3, 4, 1.0) 
+      == Approx(splinetoolbox::catmullrom_d(1, 2, 3, 4, 1.1)));
+      */
 }
